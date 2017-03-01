@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfaces;
 
-/**
- *
- * @author KB-01
- */
+
 public class Principal extends javax.swing.JFrame {
 
     /**
@@ -39,6 +31,11 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Principal v0.1");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         javax.swing.GroupLayout jdpPrincipalLayout = new javax.swing.GroupLayout(jdpPrincipal);
@@ -95,6 +92,11 @@ public class Principal extends javax.swing.JFrame {
         jdpPrincipal.add(cli);
         cli.setVisible(true);
     }//GEN-LAST:event_cadPessoasActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        
+        this.setExtendedState(this.MAXIMIZED_BOTH);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

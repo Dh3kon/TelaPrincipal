@@ -1,16 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfaces;
 
-/**
- *
- * @author KB-01
- */
+import dao.Cadastro;
+import java.util.Date;
+
+
 public class jifCadastroCli extends javax.swing.JInternalFrame {
 
+    private Cadastro cad = new Cadastro();
+    int acao;
+    int status;
     /**
      * Creates new form jifCadastroCli
      */
@@ -184,36 +182,17 @@ public class jifCadastroCli extends javax.swing.JInternalFrame {
 
     private void jbNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNovoActionPerformed
 
-        jtNome.setEnabled(true);
-        jtEnd.setEnabled(true);
-        jtCpf.setEnabled(true);
-        jtRg.setEnabled(true);
-        jtTelefone.setEnabled(true);
-        jbEditar.setEnabled(true);
-        jbSalvar.setEnabled(true);
-        jbCancelar.setEnabled(true);
-        jbExcluir.setEnabled(true);
-        jtCodigo.setEnabled(false);
-        jrAtivo.setEnabled(true);
-        jrInativo.setEnabled(true);
-        jrAtivo.setSelected(true);
+        novo();
+        Date dataSistema = new Date();
+        jtData.setDate(dataSistema);
+        
+        
     }//GEN-LAST:event_jbNovoActionPerformed
 
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
 
-        jtNome.setEnabled(true);
-        jtEnd.setEnabled(true);
-        jtCpf.setEnabled(true);
-        jtRg.setEnabled(true);
-        jtTelefone.setEnabled(true);
-        jbEditar.setEnabled(true);
-        jbSalvar.setEnabled(true);
-        jbCancelar.setEnabled(true);
-        jbExcluir.setEnabled(true);
-        jtCodigo.setEnabled(false);
-        jrAtivo.setEnabled(true);
-        jrInativo.setEnabled(true);
-        jrAtivo.setSelected(true);
+        salvar();
+        cad.salvarPessoa(pes);
     }//GEN-LAST:event_jbSalvarActionPerformed
 
 
@@ -246,4 +225,45 @@ public class jifCadastroCli extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtRg;
     private javax.swing.JTextField jtTelefone;
     // End of variables declaration//GEN-END:variables
+
+    public void novo() {
+        
+        jtNome.setEnabled(true);
+        jtEnd.setEnabled(true);
+        jtCpf.setEnabled(true);
+        jtRg.setEnabled(true);
+        jtTelefone.setEnabled(true);
+        jbEditar.setEnabled(true);
+        jbSalvar.setEnabled(true);
+        jbCancelar.setEnabled(true);
+        jbExcluir.setEnabled(true);
+        jtCodigo.setEnabled(false);
+        jrAtivo.setEnabled(true);
+        jrInativo.setEnabled(true);
+        jrAtivo.setSelected(true);
+    }
+    
+    public void salvar() {
+       
+        jtNome.setEnabled(false);
+        jtEnd.setEnabled(false);
+        jtCpf.setEnabled(false);
+        jtRg.setEnabled(false);
+        jtTelefone.setEnabled(false);
+        jbEditar.setEnabled(false);
+        jbSalvar.setEnabled(false);
+        jbCancelar.setEnabled(false);
+        jbExcluir.setEnabled(false);
+        jtCodigo.setEnabled(true);
+        jrAtivo.setEnabled(false);
+        jrInativo.setEnabled(false);
+        jrAtivo.setSelected(false);
+        
+        jtNome.setText("");
+        jtEnd.setText("");
+        jtCpf.setText("");
+        jtRg.setText("");
+        jtTelefone.setText("");
+        jtCodigo.setText("");
+    }
 }
